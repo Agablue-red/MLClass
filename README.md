@@ -1,6 +1,6 @@
 # Project Machine Learning
 
-The goal of the project is develop a model capable of predicting expected returns on the basis of a ranking of scores assigned to all the evaluated stocks.
+The goal of the project is to develop a model capable of predicting expected returns on the basis of a ranking of scores assigned to all the evaluated stocks.
 
 ## List of contents
  - [Files](https://github.com/Agablue-red/Machine-Learning#files)
@@ -33,19 +33,19 @@ The dataset consists of date, stock index, sector, rating, closing price, and ra
 ```
 The main dataset is a combination of two datasets. The first set comes directly from the lecturer and includes expert assessment of the company. The second set was downloaded by the authors at Yahoo finance and used to calculate the rate of return.
 
-During data preparation, `397` stock indices were removed because the symbols of companies in both sets didn't match.
+During data preparation, `397` stock indices were removed because the symbols of companies in both sets hadn't match.
 
     Number of all unique symbols: 1804 
     Number of missing symbols: 397 
     Number of symbols in dataset:  1407
 
-As a result removing missing symbols and closing prices dataset has `30551` rows.
+As a result of removing missing symbols and closing prices, the dataset has `30551` rows.
 
     Old data frame length: 37360 
     New data frame length: 30551 
     Number of rows deleted:  6809
 
-The mean score for this dataset is `0.73`, mean closing price is `101.3` and mean return rate is `0.004`.
+The mean score for this dataset is `0.73`, while mean closing price is `101.3` and mean return rate is `0.004`.
 
 ```python
     #basic statistics
@@ -69,12 +69,12 @@ The time-series begins in `2004-02-10` and ends in `2022-02-10`.
 
 ![Return rate](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/return_rate.png)
 
-The figure shows weekly return rates since 2004 to 2022. It has a lot of deviations and seasonality is not observed. The highest deviance was observed in 2004 with a weekly return of `-95%`. In years from 2009 and 2010 the biggest fluctuations on return rates were noted with between `-40%` and `60%`.
+The figure shows weekly return rates from 2004 to 2022. It has a lot of deviations whereas seasonality is not observed. The highest deviance was observed in 2004 with a weekly return of `-95%`. In years from 2009 and 2010 the biggest fluctuations on return rates were noted with in between `-40%` and `60%`.
 
 #### Training and test sets
 
-Training set involves data from 2010 to 2020 and testing set includes the year 2021.
-Test set have `2021` observations and training set consist of `19797` obserations.
+Training set involves data from 2010 to 2020 while testing set includes the year 2021.
+Test set has `2021` observations whereas training set consist of `19797` observations.
 
 #### Linear Regression
 
