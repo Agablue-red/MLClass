@@ -50,6 +50,7 @@ The mean score for this dataset is `0.73`, mean closing price is `101.3` and mea
 ```python
     #basic statistics
     data.describe()
+
 	|		| score    | close       | return_rate |
     |count  | 30551    | 30551	     |  30551      |
     |mean   | 0.731206 | 101.353658  |  0.003849   |
@@ -100,7 +101,7 @@ Test set have `2021` observations and training set consist of `19797` obseration
     Median absolute error (linear model): 0.023
 
 #### Comparison between dummy regression and linear regression in combination with observations from testing sets.
-![Comparison](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/comparison_dummy-linear.png)
+![Comparison](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/comparision_dummy-linear.png)
 
 > Note
 
