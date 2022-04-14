@@ -50,22 +50,24 @@ The mean score for this dataset is `0.73`, mean closing price is `101.3` and mea
 ```python
     #basic statistics
     data.describe()
-			        score          close     return_rate
-    count    30551.000000	30551.000000	30551.000000
-    mean         0.731206	101.353658		 0.003849
-    std          0.117692	2627.016498		 0.044643
-    min          0.413554	0.020000		-0.951550
-    25%          0.653428	26.072500		-0.016298
-    50%          0.741474	44.770000		 0.002865
-    75%          0.813471	73.910004		 0.023672
-    max          0.987225	453000.000000	 0.632911
+	|		| score    | close       | return_rate |
+    |count  | 30551    | 30551	     |  30551      |
+    |mean   | 0.731206 | 101.353658  |  0.003849   |
+    |std    | 0.117692 | 2627.016498 |  0.044643   |
+    |min    | 0.413554 | 0.020000	 | -0.951550   |
+    |25%    | 0.653428 | 26.072500	 | -0.016298   |
+    |50%    | 0.741474 | 44.770000	 |  0.002865   |
+    |75%    | 0.813471 | 73.910004	 |  0.023672   |
+    |max    | 0.987225 | 453000	     |  0.632911   |
 ```
    
 ### Initial modelling
 
 #### Plotting Weekly Return
 The time-series begins in `2004-02-10` and ends in `2022-02-10`.
-![Return rate](https://github.com/Agablue-red/Machine-Learning/raw/main/images/return_rate.png)
+
+![Return rate](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/return_rate.png)
+
 The figure shows weekly return rates since 2004 to 2022. It has a lot of deviations and seasonality is not observed. The highest deviance was observed in 2004 with a weekly return of `-95%`. In years from 2009 and 2010 the biggest fluctuations on return rates were noted with between `-40%` and `60%`.
 
 #### Training and test sets
@@ -98,7 +100,7 @@ Test set have `2021` observations and training set consist of `19797` obseration
     Median absolute error (linear model): 0.023
 
 #### Comparison between dummy regression and linear regression in combination with observations from testing sets.
-![Comparison](https://github.com/Agablue-red/Machine-Learning/raw/main/images/comparison_dummy-linear.png)
+![Comparison](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/comparison_dummy-linear.png)
 
 > Note
 
