@@ -7,10 +7,9 @@ The goal of the project is to develop a model capable of predicting expected ret
 - [Files](https://github.com/Agablue-red/Machine-Learning#files)
 - [Description](https://github.com/Agablue-red/Machine-Learning#description)
 	- [Data preparation](https://github.com/Agablue-red/Machine-Learning#data-preparation)
-	- [Time Series analysis]()
-
+	- [Time Series analysis](https://github.com/Agablue-red/Machine-Learning#time-series-analysis) 
 	- [Initial modelling](https://github.com/Agablue-red/Machine-Learning#initial-modelling)
-	- [Advanced modelling]()
+	- Advanced modelling
 
 - [Technologies](https://github.com/Agablue-red/Machine-Learning#technologies)
 - [Authors](https://github.com/Agablue-red/Machine-Learning#authors)
@@ -152,7 +151,7 @@ The fourth graph shows the linear relationships in the first lag. As a result, n
 
 ![ARMA_model](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/ARMA_model.png)
 
-The best model with the lowest AIC = 50337.918 was selected.
+The best model with the lowest `AIC = 50337.918` was selected.
 
 Do each coefficient is statistically significant?
 
@@ -167,81 +166,101 @@ Do the residuals are independent (white noise)?
 
 The Ljung Box tests that the errors are white noise.
 
-The probability (0.23) is above 0.05, so  **we can’t reject the null that the errors are white noise**.
+The probability (`0.23`) is above 0.05, so  **we can’t reject the null that the errors are white noise**.
 
 Do residuals show variance?
 
 Heteroscedasticity tests that the error residuals are homoscedastic or have the same variance.
 
-Test statistic of 1.82 and a p-value of 0.00, which means we reject the null hypothesis and  **residuals show variance**.
+Test statistic of `1.82` and a p-value of 0.00, which means we reject the null hypothesis and  **residuals show variance**.
 
 Did data is normally distributed?
 
 Jarque-Bera tests for the normality of errors.
 
-Test statistic of 104150.24 with a probability of 0, which means we reject the null hypothesis, and  **the data is not normally distributed**.
+Test statistic of `104150.24` with a probability of `0`, which means we reject the null hypothesis, and  **the data is not normally distributed**.
 
 In addition results show:
 
 -   Negative skewness - left side asymmetry (long tail on the left side).
 -   Excess kurtosis - results fluctuate around a mean
+
 ### Initial modelling
-
-#### Plotting Weekly Return
-The time-series begins in `2004-02-10` and ends in `2022-02-10`.
-
-![Return rate](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/return_rate.png)
-
-The figure shows weekly return rates from 2004 to 2022. It has a lot of deviations whereas seasonality is not observed. The highest deviance was observed in 2004 with a weekly return of `-95%`. In years from 2009 and 2010 the biggest fluctuations on return rates were noted with in between `-40%` and `60%`.
 
 #### Training and test sets
 
-Training set involves data from 2010 to 2020 while testing set includes the year 2021.
-Test set has `2021` observations whereas training set consist of `19797` observations.
+  ![ARMA_model](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/rr_test_train.png)
 
-#### Linear Regression
+Training set involves data `from 2010 to 2020` while testing set includes the year `2021`.
 
-    lm = LinearRegression().fit(X_train, y_train)
-    y_pred = lm.predict(X_test)
-    lm.score(X_train, y_train)
-    0.005437296983874185
+Training set consist of `19797` observations whereas test set has `2021` observations  
 
-> Note
-
-    Mean squared error (linear model): 0.002
-    Median absolute error (linear model): 0.023
 
 #### Dummy regression
 
-    reg_dummy = DummyRegressor(strategy = 'mean').fit(X_train, y_train) 
-    y_pred_dum = reg_dummy.predict(X_test)
-    reg_dummy.score(X_train, y_train)
-    0.0
 
-> Note
+    Coefficient of determination: 0.0
 
-    Mean squared error (linear model): 0.002
-    Median absolute error (linear model): 0.023
+0% represents a model that does not explain any of the variation in the response variable around its mean.
 
-#### Comparison between dummy regression and linear regression in combination with observations from testing sets.
+    Coefficient of determination (Adjusted R2): -0.00140
+    Mean absolute error (MAE): 0.00214
+    Residual sum of squares (MSE): 0.00178
+    Root mean squared error (RMSE): 0.04214
+
+#### Linear Regression
+
+$f(x) = - 0.027x + 0.024$
+
+    Coefficient of determination: 0.005437296983874185
+
+Model explains only `0.0054` of the variation in the response variable around its mean.
+
+    Coefficient of determination (Adjusted R2): -0.00431
+    Mean absolute error (MAE): 0.03100
+    Residual sum of squares (MSE): 0.00178
+    Root mean squared error (RMSE): 0.04220
+
+#### Comparison between dummy regression and linear regression in combination with observations from test set.
+
 ![Comparison](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/comparision_dummy-linear.png)
 
-> Note
+Model does not explain any of the variation in the response variable around its mean.
+
+Linear regression is marginally better than dummy regression.
+
+Both models are not well fit.
 
 ### Advanced modelling
+
 > Not yet
 
+  
+
 ## Technologies
+
 Project is created in Python with:
+
 * yfinance version: 0.1.70
+
 * pandas version: 1.2.4
+
 * numpy version: 1.20.1
+
 * scikit-learn version: 0.24.1
 
-##  Authors
+  
+
+## Authors
+
+  
 
 Wiktoria Ekwińska
 
+  
+
 Bartek Gimzicki
+
+  
 
 Agnieszka Pijaczyńska
