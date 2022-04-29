@@ -8,7 +8,7 @@ The goal of the project is to develop a model capable of predicting expected ret
 - [Description](https://github.com/Agablue-red/Machine-Learning#description)
 	- [Data preparation](https://github.com/Agablue-red/Machine-Learning#data-preparation)
 	- [Time Series analysis](https://github.com/Agablue-red/Machine-Learning#time-series-analysis) 
-	- [Initial modelling](https://github.com/Agablue-red/Machine-Learning#initial-modelling)
+	- [Linear regression](https://github.com/Agablue-red/Machine-Learning#linear-regression)
 	- Advanced modelling
 
 - [Technologies](https://github.com/Agablue-red/Machine-Learning#technologies)
@@ -20,14 +20,16 @@ The goal of the project is to develop a model capable of predicting expected ret
 
 - [Data preparation](https://github.com/Agablue-red/Machine-Learning/blob/master/code/data_preparation.ipynb)
 - [Time Series analysis](https://github.com/Agablue-red/Machine-Learning/blob/master/code/time-series.ipynb)
-- [Initial modelling](https://github.com/Agablue-red/Machine-Learning/blob/master/code/regression.ipynb)
+- [Linear regression](https://github.com/Agablue-red/Machine-Learning/blob/master/code/regression.ipynb)
+- [LR using the logarithmic rate of return](https://github.com/Agablue-red/Machine-Learning/blob/master/code/regression2.ipynb)
 - Advanced modelling 
 
 ### Specifications
 
 - [Data preparation](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/data_preparation.pdf)
 - [Time Series analysis](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/time-series.pdf)
-- [Initial modelling](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/regression.pdf)
+- [Linear regression](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/regression.pdf)
+- [LR using the logarithmic rate of return](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/regression2.ipynb)
 - Advanced modelling 
 
 ## Description
@@ -185,7 +187,7 @@ In addition results show:
 -   Negative skewness - left side asymmetry (long tail on the left side).
 -   Excess kurtosis - results fluctuate around a mean
 
-### Initial modelling
+### Linear Regression
 
 #### Training and test sets
 
@@ -231,23 +233,30 @@ Linear regression is marginally better than dummy regression.
 
 Both models are not well fit.
 
+So project group used **the logarithmic rate of return** but measures of fit a model are worst than using the simple rate of return.
+
+    Coefficient of determination: 0.002064
+    Mean absolute error (MAE): 0.01353
+    Residual sum of squares (MSE): 0.00038
+    Root mean squared error (RMSE): 0.01957
+
 ### Advanced modelling
 
 > Not yet
 
-  
-
+ 
 ## Technologies
 
 Project is created in Python with:
 
-* yfinance version: 0.1.70
-
-* pandas version: 1.2.4
-
+* matplotlib version: 3.3.4
 * numpy version: 1.20.1
-
+* pandas version: 1.2.4
+* pmdarima version: 1.8.5
 * scikit-learn version: 0.24.1
+* seaborn version: 0.11.1
+* statsmodels version: 0.12.2
+* yfinance version: 0.1.70
 
   
 
