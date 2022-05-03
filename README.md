@@ -193,7 +193,7 @@ In addition results show:
 
   ![ARMA_model](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/rr_test_train.png)
 
-Training set involves data `from 2010 to 2020` while testing set includes the year `2021`.
+Training set involves data `from 2010 to 2020` while test set includes the year `2021`.
 
 Training set consists of `19797` observations whereas test set has `2021` observations.
 
@@ -213,7 +213,7 @@ Training set consists of `19797` observations whereas test set has `2021` observ
 
 #### Linear Regression
 
-$f(x) = - 0.027x + 0.024$
+$$f(x) = - 0.027x + 0.024$$
 
     Coefficient of determination: 0.005437296983874185
 
