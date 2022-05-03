@@ -36,7 +36,7 @@ The goal of the project is to develop a model capable of predicting expected ret
 
 ### Data preparation
 
-The dataset consists of date, stock index, sector, rating, closing price, and rate of return. 
+The dataset consists of date, stock index, sector, rating, closing price and rate of return. 
 
 ```python
     | Date      | symbol | sector                | score    | close      | return_rate |
@@ -80,9 +80,9 @@ The mean score for this dataset is `0.73`, while mean closing price is `101.3` a
 
 ### Time Series analysis
 
-The time-series begins in `2004-02-10` and ends in `2022-02-10`.  The analysis involves data from `2006`. The parametric measures are the closing price and the rate of return.
+The time-series begins on `2004-02-10` and ends on `2022-02-10`.  The analysis involves data from `2006`. The closing price and the rate of return are parametric measures.
 
-#### Visualize the stock’s weekly closing price and rate of return
+#### Visualization of the stock’s weekly closing price and rate of return
 
 ![close_price](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/close_price.png)
 
@@ -90,7 +90,7 @@ The process above is not stationary, because the mean is not constant through ti
 
 ![rate_of_return](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/rate_of_return.png)
 
-It has a lot of deviations whereas seasonality is not observed. The highest deviance was observed in `2008` with a weekly return of `-17%`. In year `2020` the biggest fluctuations on return rates were noted with in between `-14%` and `17%`.
+The rate of return has many fluctuations, while the seasonality is not observed. The highest deviance was observed in `2008` with a weekly return of `-17%`. In `2020`, the biggest fluctuations on rate of return were found out in between `-14%` and `17%`.
 
 #### Dickey-Fuller test
 
@@ -112,7 +112,7 @@ We can rule out the Null hypothesis because the p-value is smaller than 0.05. Ad
 
 #### Estimating trend
 
-To reduce the magnitude of the values and the growing trend in the series use log of the series. 
+The log of the series was used to reduce the magnitude of the values and the growing trend in the series. 
 
 ![log_close_price](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/log_close_price.png)
 
@@ -122,7 +122,7 @@ Visualization of logarithmic closing prices. The falls are the results of crises
 
 ![log_scale](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/log_scale.png)
 
-The result of smoothing by the previous quarter can hardly see a trend, because it is too close to actual curve. In addition the increasing mean and standard deviation may be seen, indicating that our series isn’t stationary.
+The result of smoothing by the previous quarter can hardly see a trend, because it is too close to actual curve. In addition, the increasing mean and standard deviation may be seen, indicating that our series isn’t stationary.
 
 #### SARIMAX (3, 0, 3) model
 
@@ -141,44 +141,44 @@ The first chart shows the grouping of volatility. The residual errors appear to 
 
 **Histogram plus estimated density**
 
-The density plot suggests a normal distribution with a mean of zero. What is the excess kurtosis with long tails.
+The density plot suggests a normal distribution with a mean of zero which is the excess kurtosis with long tails.
 
 **Normal Q-Q**
 
-Normal Q-Q shows deviations from the red line, both at the beginning and at the end, what would indicate a skewed distribution with long tails.
+Normal Q-Q shows deviations from the red line, both at the beginning and at the end, which would indicate a skewed distribution with long tails.
 
 **Correlogram**
 
-The fourth graph shows the linear relationships in the first lag. As a result, need to add more Xs (predictors) to the model.
+The fourth graph shows the linear relationships in the first lag. As a result, more Xs (predictors) have to be added to the model.
 
 ![ARMA_model](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/ARMA_model.png)
 
 The best model with the lowest `AIC = 50337.918` was selected.
 
-Do each coefficient is statistically significant?
+Is each coefficient statistically significant?
 
 The tests are:
 
 -   Null Hypothesis: each coefficient is NOT statistically significant.
--   Alternate Hypothesis: coefficient is statistically significant (p-value of less than 0.05).
+-   Alternate Hypothesis: the coefficient is statistically significant (p-value of less than 0.05).
 
 **Each parameter is statistically significant.**
 
-Do the residuals are independent (white noise)?
+Are the residuals independent (white noise)?
 
-The Ljung Box tests that the errors are white noise.
+The Ljung Box tests if the errors are white noise.
 
 The probability (`0.23`) is above 0.05, so  **we can’t reject the null that the errors are white noise**.
 
 Do residuals show variance?
 
-Heteroscedasticity tests that the error residuals are homoscedastic or have the same variance.
+Heteroscedasticity tests if the error residuals are homoscedastic or have the same variance.
 
-Test statistic of `1.82` and a p-value of 0.00, which means we reject the null hypothesis and  **residuals show variance**.
+Test statistic is `1.82` while p-value of 0.00, which means that we can reject the null hypothesis and the **residuals show variance**.
 
-Did data is normally distributed?
+Is data normally distributed?
 
-Jarque-Bera tests for the normality of errors.
+Jarque-Bera test verifies the normality of the errors.
 
 Test statistic of `104150.24` with a probability of `0`, which means we reject the null hypothesis, and  **the data is not normally distributed**.
 
@@ -195,7 +195,7 @@ In addition results show:
 
 Training set involves data `from 2010 to 2020` while testing set includes the year `2021`.
 
-Training set consist of `19797` observations whereas test set has `2021` observations  
+Training set consists of `19797` observations whereas test set has `2021` observations.
 
 
 #### Dummy regression
@@ -203,7 +203,8 @@ Training set consist of `19797` observations whereas test set has `2021` observa
 
     Coefficient of determination: 0.0
 
-0% represents a model that does not explain any of the variation in the response variable around its mean.
+`0%` indicates thet the model does not fit the training data.
+
 
     Coefficient of determination (Adjusted R2): -0.00140
     Mean absolute error (MAE): 0.00214
@@ -216,14 +217,14 @@ $f(x) = - 0.027x + 0.024$
 
     Coefficient of determination: 0.005437296983874185
 
-Model explains only `0.0054` of the variation in the response variable around its mean.
+`0.0054%` indicates thet the model does not fit the training data.
 
     Coefficient of determination (Adjusted R2): -0.00431
     Mean absolute error (MAE): 0.03100
     Residual sum of squares (MSE): 0.00178
     Root mean squared error (RMSE): 0.04220
 
-#### Comparison between dummy regression and linear regression in combination with observations from test set.
+#### Comparison between dummy regression and linear regression combinaed with observations from the test set.
 
 ![Comparison](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/comparision_dummy-linear.png)
 
@@ -231,9 +232,9 @@ Model does not explain any of the variation in the response variable around its 
 
 Linear regression is marginally better than dummy regression.
 
-Both models are not well fit.
+Both models do not fit the variables.
 
-So project group used **the logarithmic rate of return** but measures of fit a model are worst than using the simple rate of return.
+So the project group used **the logarithmic rate of return**, but the model fit measures are worst than using the simple rate of return.
 
     Coefficient of determination: 0.002064
     Mean absolute error (MAE): 0.01353
