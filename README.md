@@ -241,8 +241,32 @@ So the project group used **the logarithmic rate of return**, but the model fit 
 
 ### Advanced modelling
 
-> Not yet
+> Describe
 
+#### Select model
+
+    R2 score for 1M SVR model:  -0.0014809207547292647
+    R2 score for 1M Decision Tree Regressor:  -0.0015599466263849116
+    R2 score for 1M LASSO Regression:  -0.0006441597674294641
+
+**The best model is LASSO Regression for half year interval.**
+
+
+    R2 score for 6M SVR model:  0.0010280258340791492
+    R2 score for 6M Decision Tree Regressor:  3.249460460665876e-05
+    R2 score for 6M LASSO Regression:  -0.000623734491423078
+
+**The best model is Decision Tree Regressor for half year interval.**
+
+    R2 score for 1Y SVR model:  0.006046376404068343
+    R2 score for 1Y Decision Tree Regressor:  0.004258022265273442
+    R2 score for 1Y LASSO Regression:  -0.002330611072149069
+
+**The best model is SVR for year interval.**
+
+#### Comparison
+
+> Describe
  
 ## Technologies
 
