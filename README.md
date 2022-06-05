@@ -56,8 +56,8 @@ During data preparation, `397` stock indices were removed because the symbols of
 As a result of removing missing symbols and closing prices, the dataset has `30551` rows.
 
     Old data frame length: 37360
-    New data frame length: 30551
-    Number of rows deleted: 6809
+    New data frame length: 29996
+    Number of rows deleted: 7364
 
 The mean score for this dataset is `0.73`, while mean closing price is `101.3` and mean return rate is `0.004`.
  
@@ -204,23 +204,23 @@ Training set consists of `19797` observations whereas test set has `2021` observ
 `0%` indicates thet the model does not fit the training data.
 
 
-    Coefficient of determination (Adjusted R2): -0.00140
-    Mean absolute error (MAE): 0.00214
-    Residual sum of squares (MSE): 0.00178
-    Root mean squared error (RMSE): 0.04214
+    Coefficient of determination (Adjusted R2): -0.00022
+    Mean absolute error (MAE): 0.04444
+    Residual sum of squares (MSE): 0.00349
+    Root mean squared error (RMSE): 0.05905
 
 #### Linear Regression
 
-$$f(x) = - 0.027x + 0.024$$
+$$f(x) = - 0.009x + 0.013$$
 
-    Coefficient of determination: 0.005437296983874185
+    Coefficient of determination: 0.00040496151184277185
 
-`0.0054%` indicates thet the model does not fit the training data.
+`0.0004%` indicates thet the model does not fit the training data.
 
-    Coefficient of determination (Adjusted R2): -0.00431
-    Mean absolute error (MAE): 0.03100
-    Residual sum of squares (MSE): 0.00178
-    Root mean squared error (RMSE): 0.04220
+    Coefficient of determination (Adjusted R2): -0.00050
+    Mean absolute error (MAE): 0.04445.
+    Residual sum of squares (MSE): 0.00349.
+    Root mean squared error (RMSE): 0.05906
 
 #### Comparison between dummy regression and linear regression combinaed with observations from the test set.
 
@@ -241,7 +241,7 @@ So the project group used **the logarithmic rate of return**, but the model fit 
 
 ### Advanced modelling
 
-> Describe
+We created three Machine Learning Models (SVR, Decision Tree Regressor and LASSO Regressoin) using k-fold Cross-Validation. We used R2 score to compare the models.
 
 #### Select model
 
@@ -266,7 +266,11 @@ So the project group used **the logarithmic rate of return**, but the model fit 
 
 #### Comparison
 
-> Describe
+For regression
+
+### SUMMARY
+
+We created two initial models - dummy and linear regression and three advanced Machine Laerning Models - Decision Tree Regressor and LASSO Regressoin. For all models R2 score is close to 0, which means all of them do not fit well variables.
  
 ## Technologies
 
