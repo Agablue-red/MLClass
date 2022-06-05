@@ -9,7 +9,7 @@ The goal of the project is to develop a model capable of predicting expected ret
 	- [Data preparation](https://github.com/Agablue-red/Machine-Learning#data-preparation)
 	- [Time Series analysis](https://github.com/Agablue-red/Machine-Learning#time-series-analysis) 
 	- [Linear regression](https://github.com/Agablue-red/Machine-Learning#linear-regression)
-	- Advanced modelling
+	- [Advanced modelling](https://github.com/Agablue-red/Machine-Learning#advanced-modelling)
 
 - [Technologies](https://github.com/Agablue-red/Machine-Learning#technologies)
 - [Authors](https://github.com/Agablue-red/Machine-Learning#authors)
@@ -20,17 +20,15 @@ The goal of the project is to develop a model capable of predicting expected ret
 
 - [Data preparation](https://github.com/Agablue-red/Machine-Learning/blob/master/code/data_preparation.ipynb)
 - [Time Series analysis](https://github.com/Agablue-red/Machine-Learning/blob/master/code/time-series.ipynb)
-- [Linear regression](https://github.com/Agablue-red/Machine-Learning/blob/master/code/regression.ipynb)
-- [LR using the logarithmic rate of return](https://github.com/Agablue-red/Machine-Learning/blob/master/code/regression2.ipynb)
-- Advanced modelling 
+- [Linear regression](https://github.com/Agablue-red/Machine-Learning/blob/master/code/initial_modelling.ipynb)
+- [Advanced modelling](https://github.com/Agablue-red/Machine-Learning/blob/master/code/advanced_modelling.ipynb) 
 
 ### Specifications
 
 - [Data preparation](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/data_preparation.pdf)
 - [Time Series analysis](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/time-series.pdf)
-- [Linear regression](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/regression.pdf)
-- [LR using the logarithmic rate of return](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/regression2.ipynb)
-- Advanced modelling 
+- [Linear regression](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/initial_modelling.pdf)
+- [Advanced modelling](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/advanced_modelling.pdf) 
 
 ## Description
 
