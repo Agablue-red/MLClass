@@ -252,19 +252,19 @@ However R2 isn't correct statistical measure for these advantated models.
     Mean absolute error (MAE) for 1M Decision Tree Regressor: 0.05365
     Mean absolute error (MAE) for 1M LASSO Regression: 0.05349
 
-**According to MAE, the best model is LASSO Regression for half year interval.**
+According to MAE, the best model is LASSO Regression for half year interval.
 
     Mean absolute error (MAE) for 6M SVR Model: 0.08454
     Mean absolute error (MAE) for 6M Decision Tree Regressor: 0.08484
     Mean absolute error (MAE) for 6M LASSO Regression: 0.08467
 
-**According to MAE, the best model is SVR for half year interval.**
+According to MAE, the best model is SVR for half year interval.
 
     Mean absolute error (MAE) for 1Y SVR Model: 0.10277
     Mean absolute error (MAE) for 1Y Decision Tree Regressor: 0.10338
     Mean absolute error (MAE) for 1Y LASSO Regression: 0.10455
 
-**According to MAE, the best model is SVR for year interval.**
+According to MAE, the best model is SVR for year interval.
 
 ##### Mean Squared Error
 
@@ -272,19 +272,19 @@ However R2 isn't correct statistical measure for these advantated models.
     Mean squared error (MSE) for 1M Decision Tree Regressor: 0.00551
     Mean squared error (MSE) for 1M LASSO Regression: 0.00549
 
-**According to MSE, the best model is Decision Tree Regressor for month interval.**
+According to MSE, the best model is Decision Tree Regressor for month interval.
 
     Mean squared error (MSE) for 6M SVR Model: 0.01412
     Mean squared error (MSE) for 6M Decision Tree Regressor: 0.01419
     Mean squared error (MSE) for 6M LASSO Regression: 0.01416
 
-**According to MSE, the best model is SVR for half year interval.**
+According to MSE, the best model is SVR for half year interval.
 
     Mean squared error (MSE) for 1Y SVR Model: 0.02126
     Mean squared error (MSE) for 1Y Decision Tree Regressor: 0.02141
     Mean squared error (MSE) for 1Y LASSO Regression: 0.02170
 
-**According to MSE, the best model is SVR for year interval.**
+According to MSE, the best model is SVR for year interval.
 
 #### Comparison performance of the models against a baseline model
 
