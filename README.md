@@ -234,45 +234,77 @@ Linear regression is marginally better than dummy regression.
 
 Both models do not fit the variables.
 
-So the project group used **the logarithmic rate of return**, but the model fit measures are worst than using the simple rate of return.
-
-    Coefficient of determination: 0.002064
-    Mean absolute error (MAE): 0.01353
-    Residual sum of squares (MSE): 0.00038
-    Root mean squared error (RMSE): 0.01957
-
 ### Advanced modelling
 
-We created three Machine Learning Models (SVR, Decision Tree Regressor and LASSO Regressoin) using k-fold Cross-Validation. We used R2 score to compare the models.
+We created three Machine Learning Models (SVR, Decision Tree Regressor and LASSO Regressoin) using k-fold Cross-Validation. We used R2 score, MAE and MSE to compare the models.
 
-#### Select model
+##### R-squared
 
-    R2 score for 1M SVR model:  -0.0014809207547292647
-    R2 score for 1M Decision Tree Regressor:  -0.0015599466263849116
-    R2 score for 1M LASSO Regression:  -0.0006441597674294641
+![R2](https://github.com/Agablue-red/Machine-Learning/blob/master/image/R-squared.png)
 
-**The best model is LASSO Regression for half year interval.**
+According to R2, none of the observed variation can be explained by the models' inputs.
 
+However R2 isn't correct statistical measure for these advantated models.
 
-    R2 score for 6M SVR model:  0.0010280258340791492
-    R2 score for 6M Decision Tree Regressor:  3.249460460665876e-05
-    R2 score for 6M LASSO Regression:  -0.000623734491423078
+##### Mean Absolute Error
 
-**The best model is Decision Tree Regressor for half year interval.**
+    Mean absolute error (MAE) for 1M SVR Model: 0.05372
+    Mean absolute error (MAE) for 1M Decision Tree Regressor: 0.05365
+    Mean absolute error (MAE) for 1M LASSO Regression: 0.05349
 
-    R2 score for 1Y SVR model:  0.006046376404068343
-    R2 score for 1Y Decision Tree Regressor:  0.004258022265273442
-    R2 score for 1Y LASSO Regression:  -0.002330611072149069
+**According to MAE, the best model is LASSO Regression for half year interval.**
 
-**The best model is SVR for year interval.**
+    Mean absolute error (MAE) for 6M SVR Model: 0.08454
+    Mean absolute error (MAE) for 6M Decision Tree Regressor: 0.08484
+    Mean absolute error (MAE) for 6M LASSO Regression: 0.08467
 
-#### Comparison
+**According to MAE, the best model is SVR for half year interval.**
 
-For regression
+    Mean absolute error (MAE) for 1Y SVR Model: 0.10277
+    Mean absolute error (MAE) for 1Y Decision Tree Regressor: 0.10338
+    Mean absolute error (MAE) for 1Y LASSO Regression: 0.10455
+
+**According to MAE, the best model is SVR for year interval.**
+
+##### Mean Squared Error
+
+    Mean squared error (MSE) for 1M SVR Model: 0.00552
+    Mean squared error (MSE) for 1M Decision Tree Regressor: 0.00551
+    Mean squared error (MSE) for 1M LASSO Regression: 0.00549
+
+**According to MSE, the best model is Decision Tree Regressor for month interval.**
+
+    Mean squared error (MSE) for 6M SVR Model: 0.01412
+    Mean squared error (MSE) for 6M Decision Tree Regressor: 0.01419
+    Mean squared error (MSE) for 6M LASSO Regression: 0.01416
+
+**According to MSE, the best model is SVR for half year interval.**
+
+    Mean squared error (MSE) for 1Y SVR Model: 0.02126
+    Mean squared error (MSE) for 1Y Decision Tree Regressor: 0.02141
+    Mean squared error (MSE) for 1Y LASSO Regression: 0.02170
+
+**According to MSE, the best model is SVR for year interval.**
+
+#### Comparison performance of the models against a baseline model
+
+Mean absolute error for linear regression is `0.04445`.
+
+This is the lowest average magnitude of the errors.
+
+Mean squared error for linear regression is `0.00349`.
+
+This model is the closest to finding the line of best fit.
+
+**According to MAE and MSE, basic model is better than advantacted models.**
 
 ### SUMMARY
 
-We created two initial models - dummy and linear regression and three advanced Machine Laerning Models - Decision Tree Regressor and LASSO Regressoin. For all models R2 score is close to 0, which means all of them do not fit well variables.
+We created two initial models - dummy and linear regression and three advanced Machine Laerning Models - Decision Tree Regressor and LASSO Regressoin. 
+
+* For all models R2 score is close to `0`, which means all of them do not fit well variables.
+* The lowest value for MAE is in linear regression. Implies that average  forecast's distance from the true value is `0.04445`.
+* The lowest value for MSE is in linear regression, so this is the best model.
  
 ## Technologies
 
