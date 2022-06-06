@@ -45,7 +45,9 @@ The dataset consists of date, stock index, sector, rating, closing price and rat
     |2022-02-09 | LIFZF  | Non-Energy Minerals   | 0.695644 | 34.410000  |  0.069630   |
 ```
 
-The main dataset is a combination of two datasets. The first set comes directly from the lecturer and includes expert assessment of the company. The second set was downloaded by the authors at Yahoo finance and used to calculate the rate of return.
+The main dataset is a combination of two datasets. The first set comes directly from the lecturer and includes expert assessment of the company. The second set was downloaded by the authors at Yahoo finance and used to calculate the rate of return. 
+
+Logarithmic rates of return were obtained for the daily data, and then aggregated into two-week intervals according to the dates for lecturer's set. In the further part of the project, both points and rates of return were aggregated to monthly, semi-annual and annual data, as an average for a given period for points and a sum for rates of return.
 
 During data preparation, `397` stock indices were removed because the symbols of companies in both sets hadn't match.
 
