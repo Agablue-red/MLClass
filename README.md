@@ -8,7 +8,7 @@ The goal of the project is to develop a model capable of predicting expected ret
 - [Description](https://github.com/Agablue-red/Machine-Learning#description)
 	- [Data preparation](https://github.com/Agablue-red/Machine-Learning#data-preparation)
 	- [Time Series analysis](https://github.com/Agablue-red/Machine-Learning#time-series-analysis) 
-	- [Linear regression](https://github.com/Agablue-red/Machine-Learning#linear-regression)
+	- [Initial model](https://github.com/Agablue-red/Machine-Learning#initial-model)
 	- [Advanced modelling](https://github.com/Agablue-red/Machine-Learning#advanced-modelling)
 
 - [Technologies](https://github.com/Agablue-red/Machine-Learning#technologies)
@@ -20,14 +20,14 @@ The goal of the project is to develop a model capable of predicting expected ret
 
 - [Data preparation](https://github.com/Agablue-red/Machine-Learning/blob/master/code/data_preparation.ipynb)
 - [Time Series analysis](https://github.com/Agablue-red/Machine-Learning/blob/master/code/time-series.ipynb)
-- [Linear regression](https://github.com/Agablue-red/Machine-Learning/blob/master/code/initial_modelling.ipynb)
+- [Initial model](https://github.com/Agablue-red/Machine-Learning/blob/master/code/initial_modelling.ipynb)
 - [Advanced modelling](https://github.com/Agablue-red/Machine-Learning/blob/master/code/advanced_modelling.ipynb) 
 
 ### Specifications
 
 - [Data preparation](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/data_preparation.pdf)
 - [Time Series analysis](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/time-series.pdf)
-- [Linear regression](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/initial_modelling.pdf)
+- [Initial model](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/initial_modelling.pdf)
 - [Advanced modelling](https://github.com/Agablue-red/Machine-Learning/blob/master/PDF/advanced_modelling.pdf) 
 
 ## Description
@@ -153,7 +153,7 @@ The fourth graph shows the linear relationships in the first lag. As a result, m
 
 ![ARMA_model](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/ARMA_model.png)
 
-The best model with the lowest `AIC = 50337.918` was selected.
+The best model with the lowest `AIC = 50199.358` was selected.
 
 Is each coefficient statistically significant?
 
@@ -168,34 +168,34 @@ Are the residuals independent (white noise)?
 
 The Ljung Box tests if the errors are white noise.
 
-The probability (`0.23`) is above 0.05, so  **we can’t reject the null that the errors are white noise**.
+The probability (`0.43`) is above 0.05, so  **we can’t reject the null that the errors are white noise**.
 
 Do residuals show variance?
 
 Heteroscedasticity tests if the error residuals are homoscedastic or have the same variance.
 
-Test statistic is `1.82` while p-value of 0.00, which means that we can reject the null hypothesis and the **residuals show variance**.
+Test statistic is `1.69` while p-value of 0.00, which means that we can reject the null hypothesis and the **residuals show variance**.
 
 Is data normally distributed?
 
 Jarque-Bera test verifies the normality of the errors.
 
-Test statistic of `104150.24` with a probability of `0`, which means we reject the null hypothesis, and  **the data is not normally distributed**.
+Test statistic of `99146.88` with a probability of `0`, which means we reject the null hypothesis, and  **the data is not normally distributed**.
 
 In addition results show:
 
 -   Negative skewness - left side asymmetry (long tail on the left side).
 -   Excess kurtosis - results fluctuate around a mean
 
-### Linear Regression
+### Initial model
 
 #### Training and test sets
 
-  ![ARMA_model](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/rr_test_train.png)
+  ![test_train](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/rr_test_train.png)
 
-Training set involves data `from 2010 to 2020` while test set includes the year `2021`.
+Training set involves data `from 2010 to 2020` while test set includes the years `2021 and 2022`.
 
-Training set consists of `19797` observations whereas test set has `2021` observations.
+Training set consists of `19568` observations whereas test set has `2281` observations.
 
 
 #### Dummy regression
@@ -205,24 +205,23 @@ Training set consists of `19797` observations whereas test set has `2021` observ
 
 `0%` indicates thet the model does not fit the training data.
 
-
-    Coefficient of determination (Adjusted R2): -0.00022
-    Mean absolute error (MAE): 0.04444
-    Residual sum of squares (MSE): 0.00349
-    Root mean squared error (RMSE): 0.05905
+    Coefficient of determination (R2): -0.00021
+    Mean absolute error (MAE): 0.04415
+    Residual sum of squares (MSE): 0.00348
+    Root mean squared error (RMSE): 0.05903
 
 #### Linear Regression
 
-$$f(x) = - 0.009x + 0.013$$
+$$f(x) = - 0.015x + 0.019$$
 
-    Coefficient of determination: 0.00040496151184277185
+    Coefficient of determination: 0.001
 
-`0.0004%` indicates thet the model does not fit the training data.
+`~1%` indicates thet the model does not fit the training data.
 
-    Coefficient of determination (Adjusted R2): -0.00050
-    Mean absolute error (MAE): 0.04445.
-    Residual sum of squares (MSE): 0.00349.
-    Root mean squared error (RMSE): 0.05906
+    Coefficient of determination (R2): -0.00067
+    Mean absolute error (MAE): 0.04414
+    Residual sum of squares (MSE): 0.00349
+    Root mean squared error (RMSE): 0.05904
 
 #### Comparison between dummy regression and linear regression combinaed with observations from the test set.
 
@@ -236,7 +235,11 @@ Both models do not fit the variables.
 
 ### Advanced modelling
 
-We created three Machine Learning Models (SVR, Decision Tree Regressor and LASSO Regressoin) using k-fold Cross-Validation. We used R2 score, MAE and MSE to compare the models.
+We created three Machine Learning Models (SVR, Decision Tree Regressor and LASSO Regressoin) using k-fold Cross-Validation. 
+
+#### Comparison performance of the models against each other for the various investment horizons
+
+We used R2 score, MAE and MSE to compare the models.
 
 ##### R-squared
 
@@ -248,47 +251,49 @@ However R2 isn't correct statistical measure for these advantated models.
 
 ##### Mean Absolute Error
 
-    Mean absolute error (MAE) for 1M SVR Model: 0.05372
-    Mean absolute error (MAE) for 1M Decision Tree Regressor: 0.05365
-    Mean absolute error (MAE) for 1M LASSO Regression: 0.05349
-
-According to MAE, the best model is LASSO Regression for half year interval.
-
-    Mean absolute error (MAE) for 6M SVR Model: 0.08454
-    Mean absolute error (MAE) for 6M Decision Tree Regressor: 0.08484
-    Mean absolute error (MAE) for 6M LASSO Regression: 0.08467
+    Mean absolute error (MAE) for 1M SVR Model: 0.05581
+    Mean absolute error (MAE) for 1M Decision Tree Regressor: 0.05678
+    Mean absolute error (MAE) for 1M LASSO Regression: 0.05599
 
 According to MAE, the best model is SVR for half year interval.
 
-    Mean absolute error (MAE) for 1Y SVR Model: 0.10277
-    Mean absolute error (MAE) for 1Y Decision Tree Regressor: 0.10338
-    Mean absolute error (MAE) for 1Y LASSO Regression: 0.10455
+    Mean absolute error (MAE) for 6M SVR Model: 0.08662
+    Mean absolute error (MAE) for 6M Decision Tree Regressor: 0.09145
+    Mean absolute error (MAE) for 6M LASSO Regression: 0.08786
+
+According to MAE, the best model is SVR for half year interval.
+
+    Mean absolute error (MAE) for 1Y SVR Model: 0.11689
+    Mean absolute error (MAE) for 1Y Decision Tree Regressor: 0.12315
+    Mean absolute error (MAE) for 1Y LASSO Regression: 0.11999
 
 According to MAE, the best model is SVR for year interval.
 
 ##### Mean Squared Error
 
-    Mean squared error (MSE) for 1M SVR Model: 0.00552
-    Mean squared error (MSE) for 1M Decision Tree Regressor: 0.00551
-    Mean squared error (MSE) for 1M LASSO Regression: 0.00549
+    Mean squared error (MSE) for 1M SVR Model: 0.00702
+    Mean squared error (MSE) for 1M Decision Tree Regressor: 0.00719
+    Mean squared error (MSE) for 1M LASSO Regression: 0.00706
 
-According to MSE, the best model is Decision Tree Regressor for month interval.
+According to MSE, the best model is SVR for month interval.
 
-    Mean squared error (MSE) for 6M SVR Model: 0.01412
-    Mean squared error (MSE) for 6M Decision Tree Regressor: 0.01419
-    Mean squared error (MSE) for 6M LASSO Regression: 0.01416
+    Mean squared error (MSE) for 6M SVR Model: 0.01477
+    Mean squared error (MSE) for 6M Decision Tree Regressor: 0.01599
+    Mean squared error (MSE) for 6M LASSO Regression: 0.01507
 
 According to MSE, the best model is SVR for half year interval.
 
-    Mean squared error (MSE) for 1Y SVR Model: 0.02126
-    Mean squared error (MSE) for 1Y Decision Tree Regressor: 0.02141
-    Mean squared error (MSE) for 1Y LASSO Regression: 0.02170
+    Mean squared error (MSE) for 1Y SVR Model: 0.03901
+    Mean squared error (MSE) for 1Y Decision Tree Regressor: 0.04129
+    Mean squared error (MSE) for 1Y LASSO Regression: 0.04023
 
 According to MSE, the best model is SVR for year interval.
 
+**SVR is the best model for each investment horizons.**
+
 #### Comparison performance of the models against a baseline model
 
-Mean absolute error for linear regression is `0.04445`.
+Mean absolute error for linear regression is `0.04414`.
 
 This is the lowest average magnitude of the errors.
 
@@ -302,8 +307,8 @@ This model is the closest to finding the line of best fit.
 
 We created two initial models - dummy and linear regression and three advanced Machine Laerning Models - Decision Tree Regressor and LASSO Regressoin. 
 
-* For all models R2 score is close to `0`, which means all of them do not fit well variables.
-* The lowest value for MAE is in linear regression. Implies that average  forecast's distance from the true value is `0.04445`.
+* For all models R2 score is close to `1%`, which means all of them do not fit well variables.
+* The lowest value for MAE is in linear regression. Implies that average  forecast's distance from the true value is `0.04414`.
 * The lowest value for MSE is in linear regression, so this is the best model.
  
 ## Technologies
