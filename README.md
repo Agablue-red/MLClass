@@ -37,50 +37,50 @@ The goal of the project is to develop a model capable of predicting expected ret
 The dataset consists of date, stock index, sector, rating, closing price and rate of return. 
 
 ```python
-    | Date      | symbol | sector                | score    | close      | return_rate |
-    |2022-02-09 | PEP    | Consumer Non-Durables | 0.701507 | 171.940002 | -0.003189   |
-    |2022-02-09 | SSNC   | Technology Services   | 0.701123 | 82.419998  |  0.025890   |
-    |2022-02-09 | GEF    | Process Industries    | 0.697954 | 56.930000  | -0.001753   |
-    |2022-02-09 | DPZ    | Consumer Services     | 0.697741 | 444.760010 |  0.015272   |
-    |2022-02-09 | LIFZF  | Non-Energy Minerals   | 0.695644 | 34.410000  |  0.069630   |
+    | Date      | symbol | sector                 | score    | return_rate | close     |
+    |2004-02-11 | AEE    | Utilities              | 0.670127 | 0.002350    | 70.309999 |
+    |2004-02-11 | AOS    | Producer Manufacturing | 0.753176 | 0.007533    | 8.005000  |
+    |2004-02-11 | APA    | Energy Minerals        | 0.912117 | 0.005808    | 59.630001 |
+    |2004-02-11 | ARLP   | Energy Minerals        | 0.669621 | -0.011510   | 13.578750 |
+    |2004-02-11 | ATO    | Utilities              | 0.672410 | 0.000765    | 39.230000 |
 ```
 
 The main dataset is a combination of two datasets. The first set comes directly from the lecturer and includes expert assessment of the company. The second set was downloaded by the authors at Yahoo finance and used to calculate the rate of return. 
 
 Logarithmic rates of return were obtained for the daily data, and then aggregated into two-week intervals according to the dates for lecturer's set. In the further part of the project, both points and rates of return were aggregated to monthly, semi-annual and annual data, as an average for a given period for points and a sum for rates of return.
 
-During data preparation, `397` stock indices were removed because the symbols of companies in both sets hadn't match.
+During data preparation, `512` stock indices were removed because the symbols of companies in both sets hadn't match.
 
-    Number of all unique symbols: 1804
-    Number of missing symbols: 397
-    Number of symbols in dataset: 1407
+    Number of all unique symbols: 1834
+    Number of symbols in dataset: 1322
+    Number of missing symbols: 512
 
-As a result of removing missing symbols and closing prices, the dataset has `30551` rows.
+As a result of removing missing symbols and closing prices, the dataset has `30324` rows.
 
     Old data frame length: 37360
-    New data frame length: 29996
-    Number of rows deleted: 7364
+    New data frame length: 30324
+    Number of rows deleted: 7036
 
-The mean score for this dataset is `0.73`, while mean closing price is `101.3` and mean return rate is `0.004`.
+The mean score for this dataset is `0.73`, while mean closing price is `199.86` and mean return rate is `0.008`.
  
 ```python
     #basic statistics
     data.describe()
-    
-    |      | score    | close       | return_rate |
-    |count | 30551    | 30551       |  30551      |
-    |mean  | 0.731206 | 101.353658  |  0.003849   |
-    |std   | 0.117692 | 2627.016498 |  0.044643   |
-    |min   | 0.413554 | 0.020000    | -0.951550   |
-    |25%   | 0.653428 | 26.072500   | -0.016298   |
-    |50%   | 0.741474 | 44.770000   |  0.002865   |
-    |75%   | 0.813471 | 73.910004   |  0.023672   |
-    |max   | 0.987225 | 453000      |  0.632911   |
+
+    |      | score	  | return_rate | close
+    |count | 30324    | 30324   	| 30324
+    |mean  | 0.731377 |	0.008940	| 199.862674
+    |std   | 0.117693 |	0.152564	| 5225.047203
+    |min   | 0.413554 |	-0.507207	| 0.030000
+    |25%   | 0.653702 |	-0.018704	| 51.757969
+    |50%   | 0.741667 |	0.007707	| 89.154999
+    |75%   | 0.813701 |	0.034849	| 148.037234
+    |max   | 0.987225 |	24.600929	| 898434.375000
 ```
 
 ### Time Series analysis
 
-The time-series begins on `2004-02-10` and ends on `2022-02-10`.  The analysis involves data from `2006`. The closing price and the rate of return are parametric measures.
+The time-series begins on `2004-02-11` and ends on `2022-02-09`. The analysis involves data from `2006`. The closing price and the rate of return are parametric measures.
 
 #### Visualization of the stock’s weekly closing price and rate of return
 
@@ -99,14 +99,14 @@ Dickey-Fuller test can be used to determine whether or not a series has a unit r
 
 ```python
     Results od Dickey-Fuller Test
-             Values                       Metric
-    0    -20.962812              Test Statistics
+            Values                       Metric
+    0    -21.177000              Test Statistics
     1      0.000000                      p-value
-    2     38.000000             No. of lags used
-    3  27883.000000  Number of observations used
-    4     -3.430585          critical value (1%)
+    2     35.000000             No. of lags used
+    3  27670.000000  Number of observations used
+    4     -3.430586          critical value (1%)
     5     -2.861644          critical value (5%)
-    6     -2.566825         critical value (10%)
+    6     -2.566826         critical value (10%)
 ```
 We can rule out the Null hypothesis because the p-value is smaller than 0.05. Additionally, the test statistics exceed the critical values. As a result, the data is **nonlinear**.
 
