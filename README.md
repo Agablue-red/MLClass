@@ -1,6 +1,6 @@
 # Project Machine Learning
 
-The goal of the project is to develop a model capable of predicting expected returns on the basis of a ranking of scores assigned to all the evaluated stocks. 
+The goal of the project is to develop a model capable of predicting expected returns on the basis of a ranking of ratings (scores) assigned to all the evaluated stocks. 
 
 ## List of contents
 
@@ -34,7 +34,7 @@ The goal of the project is to develop a model capable of predicting expected ret
 
 ### Data preparation
 
-The dataset consists of date, stock index, sector, rating, closing price and rate of return. 
+The dataset consists of date, stock index, sector, score (raiting), rate of return and closing price. 
 
 ```python
     | Date      | symbol | sector                 | score    | return_rate | close     |
@@ -94,7 +94,7 @@ The rate of return has many fluctuations, while the seasonality is not observed.
 
 #### Dickey-Fuller test
 
-Dickey-Fuller test can be used to determine whether or not a series has a unit root, and thus whether or not the series is stationary (H<sub>0</sub>).
+Dickey-Fuller test can be used to determine whether a series has a unit root or not, and thus whether a series is stationary (H<sub>0</sub>) or not (H<sub>1</sub>).
 
 
 ```python
@@ -116,13 +116,13 @@ The log of the series was used to reduce the magnitude of the values and the gro
 
 ![log_close_price](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/log_close_price.png)
 
-Visualization of logarithmic closing prices. The falls are the results of crises. The trend is growing.
+Visualization of logarithmic closing prices. The price drops are the results of crises. The trend is growing.
 
 #### Rolling statistics
 
 ![log_scale](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/log_scale.png)
 
-The result of smoothing by the previous quarter can hardly see a trend, because it is too close to actual curve. In addition, the increasing mean and standard deviation may be seen, indicating that our series isn’t stationary.
+As a result of smoothing out the previous quarter, it is difficult to see the trend, as it is too close to the actual curve. In addition, a rising mean and standard deviation can be observed, indicating that our series isn't stationary.
 
 #### SARIMAX (3, 0, 3) model
 
@@ -157,7 +157,7 @@ The best model with the lowest `AIC = 50199.358` was selected.
 
 Is each coefficient statistically significant?
 
-The tests are:
+Test hypothesis:
 
 -   Null Hypothesis: each coefficient is NOT statistically significant.
 -   Alternate Hypothesis: the coefficient is statistically significant (p-value of less than 0.05).
@@ -166,13 +166,13 @@ The tests are:
 
 Are the residuals independent (white noise)?
 
-The Ljung Box tests if the errors are white noise.
+The Ljung Box test is used to verify if the errors are white noise.
 
-The probability (`0.43`) is above 0.05, so  **we can’t reject the null that the errors are white noise**.
+The probability (`0.43`) is above 0.05, so  **we can’t reject the null hypothesis that the errors are white noise**.
 
 Do residuals show variance?
 
-Heteroscedasticity tests if the error residuals are homoscedastic or have the same variance.
+Heteroscedasticity test verifies if the error residuals are homoscedastic or have the same variance.
 
 Test statistic is `1.69` while p-value of 0.00, which means that we can reject the null hypothesis and the **residuals show variance**.
 
@@ -180,9 +180,9 @@ Is data normally distributed?
 
 Jarque-Bera test verifies the normality of the errors.
 
-Test statistic of `99146.88` with a probability of `0`, which means we reject the null hypothesis, and  **the data is not normally distributed**.
+Test statistic of `99146.88` with a probability of `0`, which means THAT we reject the null hypothesis, and  **the data is not normally distributed**.
 
-In addition results show:
+In addition, the results show:
 
 -   Negative skewness - left side asymmetry (long tail on the left side).
 -   Excess kurtosis - results fluctuate around a mean
@@ -203,7 +203,7 @@ Training set consists of `19568` observations whereas test set has `2281` observ
 
     Coefficient of determination: 0.0
 
-`0%` indicates thet the model does not fit the training data.
+`0%` indicates that the model does not fit the training data.
 
     Coefficient of determination (R2): -0.00021
     Mean absolute error (MAE): 0.04415
@@ -216,7 +216,7 @@ $$f(x) = - 0.015x + 0.019$$
 
     Coefficient of determination: 0.001
 
-`~1%` indicates thet the model does not fit the training data.
+`~1%` indicates that the model does not fit the training data.
 
     Coefficient of determination (R2): -0.00067
     Mean absolute error (MAE): 0.04414
@@ -227,7 +227,7 @@ $$f(x) = - 0.015x + 0.019$$
 
 ![Comparison](https://raw.githubusercontent.com/Agablue-red/Machine-Learning/master/image/comparision_dummy-linear.png)
 
-Model does not explain any of the variation in the response variable around its mean.
+The model does not explain any variation in the response variable around its mean.
 
 Linear regression is marginally better than dummy regression.
 
@@ -245,9 +245,9 @@ We used R2 score, MAE and MSE to compare the models.
 
 ![R2](https://github.com/Agablue-red/Machine-Learning/blob/master/image/R-squared.png)
 
-According to R2, none of the observed variation can be explained by the models' inputs.
+According to R2, none of the observed variation can be explained by the input data of the models.
 
-However R2 isn't correct statistical measure for these advantated models.
+However, R2 is not a proper statistical measure for these advanced models.
 
 ##### Mean Absolute Error
 
@@ -255,13 +255,13 @@ However R2 isn't correct statistical measure for these advantated models.
     Mean absolute error (MAE) for 1M Decision Tree Regressor: 0.05678
     Mean absolute error (MAE) for 1M LASSO Regression: 0.05599
 
-According to MAE, the best model is SVR for half year interval.
+According to MAE, the best model is SVR for a month interval.
 
     Mean absolute error (MAE) for 6M SVR Model: 0.08662
     Mean absolute error (MAE) for 6M Decision Tree Regressor: 0.09145
     Mean absolute error (MAE) for 6M LASSO Regression: 0.08786
 
-According to MAE, the best model is SVR for half year interval.
+According to MAE, the best model is SVR for half a year interval.
 
     Mean absolute error (MAE) for 1Y SVR Model: 0.11689
     Mean absolute error (MAE) for 1Y Decision Tree Regressor: 0.12315
@@ -275,13 +275,13 @@ According to MAE, the best model is SVR for year interval.
     Mean squared error (MSE) for 1M Decision Tree Regressor: 0.00719
     Mean squared error (MSE) for 1M LASSO Regression: 0.00706
 
-According to MSE, the best model is SVR for month interval.
+According to MSE, the best model is SVR for a month interval.
 
     Mean squared error (MSE) for 6M SVR Model: 0.01477
     Mean squared error (MSE) for 6M Decision Tree Regressor: 0.01599
     Mean squared error (MSE) for 6M LASSO Regression: 0.01507
 
-According to MSE, the best model is SVR for half year interval.
+According to MSE, the best model is SVR for half a year interval.
 
     Mean squared error (MSE) for 1Y SVR Model: 0.03901
     Mean squared error (MSE) for 1Y Decision Tree Regressor: 0.04129
@@ -293,22 +293,22 @@ According to MSE, the best model is SVR for year interval.
 
 #### Comparison performance of the models against a baseline model
 
-Mean absolute error for linear regression is `0.04414`.
+The mean absolute error for linear regression is `0.04414`.
 
 This is the lowest average magnitude of the errors.
 
-Mean squared error for linear regression is `0.00349`.
+The mean square error for linear regression is `0.00349`.
 
 This model is the closest to finding the line of best fit.
 
-**According to MAE and MSE, basic model is better than advantacted models.**
+**According to MAE and MSE, the basic model is better than the advanced models.**
 
 ### SUMMARY
 
-We created two initial models - dummy and linear regression and three advanced Machine Laerning Models - Decision Tree Regressor and LASSO Regressoin. 
+We created two initial models - dummy and linear regression, and three advanced Machine Laerning Models - SVR, Decision Tree Regressor and LASSO Regressoin. 
 
-* For all models R2 score is close to `1%`, which means all of them do not fit well variables.
-* The lowest value for MAE is in linear regression. Implies that average  forecast's distance from the true value is `0.04414`.
+* For all models, the R2 score is close to `1%`, which means that they all do not fit well with the variables.
+* The lowest value for MAE is in linear regression. This means that the average distance between the predicted and true values is `0.04414`.
 * The lowest value for MSE is in linear regression, so this is the best model.
  
 ## Technologies
